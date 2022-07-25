@@ -377,20 +377,20 @@ def main():
         f_malware = int(scan_report.get_alerts_malware())
         scan_report.get_alerts_misconfig()
 
-        if f_secrets == ScanStatusCode.Secrets.value:
-            log.error("Exiting: Secrets found in container image")
-            #sys.exit(ScanStatusCode.Secrets.value)
-        if f_malware == ScanStatusCode.Malware.value:
-            log.error("Exiting: Malware found in container image")
-            #sys.exit(ScanStatusCode.Malware.value)
-        if f_vuln_score >= int(score):
-            log.error(
-                "Exiting: Vulnerability score threshold exceeded: '%s' out of '%s'", f_vuln_score, score)
-            #sys.exit(ScanStatusCode.Vulnerability.value)
-        else:
-            log.info(
-                "Vulnerability score threshold not met: '%s' out of '%s'", f_vuln_score, score)
-            #sys.exit(ScanStatusCode.Success.value)
+        # if f_secrets == ScanStatusCode.Secrets.value:
+        #     log.error("Exiting: Secrets found in container image")
+        #     sys.exit(ScanStatusCode.Secrets.value)
+        # if f_malware == ScanStatusCode.Malware.value:
+        #     log.error("Exiting: Malware found in container image")
+        #     sys.exit(ScanStatusCode.Malware.value)
+        # if f_vuln_score >= int(score):
+        #     log.error(
+        #         "Exiting: Vulnerability score threshold exceeded: '%s' out of '%s'", f_vuln_score, score)
+        #     sys.exit(ScanStatusCode.Vulnerability.value)
+        # else:
+        #     log.info(
+        #         "Vulnerability score threshold not met: '%s' out of '%s'", f_vuln_score, score)
+        #     sys.exit(ScanStatusCode.Success.value)
 
     except APIError:
         log.exception("Unable to scan")
