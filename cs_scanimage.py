@@ -378,16 +378,16 @@ def main():
         scan_report.get_alerts_misconfig()
 
         if f_secrets == ScanStatusCode.Secrets.value:
-            log.error("Exiting: Secrets found in container image")
+            log.error("WARNING: Secrets found in container image")
             #sys.exit(ScanStatusCode.Secrets.value)
             sys.exit(ScanStatusCode.Success.value)
         if f_malware == ScanStatusCode.Malware.value:
-            log.error("Exiting: Malware found in container image")
+            log.error("WARNING: Malware found in container image")
             #sys.exit(ScanStatusCode.Malware.value)
             sys.exit(ScanStatusCode.Success.value)
         if f_vuln_score >= int(score):
             log.error(
-                "Exiting: Vulnerability score threshold exceeded: '%s' out of '%s'", f_vuln_score, score)
+                "WARNING: Vulnerability score threshold exceeded: '%s' out of '%s'", f_vuln_score, score)
             #sys.exit(ScanStatusCode.Vulnerability.value)
             sys.exit(ScanStatusCode.Success.value)
         else:
